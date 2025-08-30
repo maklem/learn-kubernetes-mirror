@@ -35,4 +35,4 @@ jobs:
         run: |
           echo "${{ secrets.KUBECONFIG }}" > kubeconfig
           export KUBECONFIG=$(pwd)/kubeconfig
-          kubectl apply -f k8s/
+          kubectl apply -f k8s/ --insecure-skip-tls-verify=true
