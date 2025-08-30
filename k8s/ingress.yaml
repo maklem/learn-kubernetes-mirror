@@ -1,14 +1,19 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
-  name: learn-kubernetes
+  name: learn-kubernetes-ingress
+  namespace: learn-kubernetes
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
-  entryPoints:
-    - web
-  routes:
-    - kind: Rule
-      match: Host(`cluster.local`)
-      services:
-        - kind: Service
-          name: learn-kubernetes
-          port: 5000
+  rules:
+  - host: cluster.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: learn-kubernetes
+            port:
+              number: 80
