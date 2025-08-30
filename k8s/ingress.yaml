@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: learn-kubernetes
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`cluster.local`)
+      services:
+        - kind: Service
+          name: learn-kubernetes
+          port: 5000
