@@ -17,5 +17,6 @@ spec:
           image: gitea.homelab.leuchtstark.dev/marco/learn-kubernetes:main
           ports:
             - containerPort: 5000
+          imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
