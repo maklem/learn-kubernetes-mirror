@@ -36,4 +36,4 @@ jobs:
           echo "${{ secrets.KUBECONFIG }}" > kubeconfig
           export KUBECONFIG=$(pwd)/kubeconfig
           kubectl apply -f k8s/ --insecure-skip-tls-verify=true
-          kubectl rollout restart deployment learn-kubernetes -n learn-kubernetes
+          kubectl rollout restart deployment learn-kubernetes -n learn-kubernetes --insecure-skip-tls-verify=true
