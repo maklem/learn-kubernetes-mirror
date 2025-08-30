@@ -13,7 +13,9 @@ spec:
         app: learn-kubernetes
     spec:
       containers:
-        - name: hello-k8s
+        - name: learn-kubernetes
           image: gitea.homelab.leuchtstark.dev/marco/learn-kubernetes:main
           ports:
             - containerPort: 5000
+      imagePullSecrets:
+        - name: regcred
