@@ -16,4 +16,4 @@ spec:
         - name: hello-k8s
           image: gitea.homelab.leuchtstark.dev/marco/learn-kubernetes:main
           ports:
-            - containerPort: 3000
+            - containerPort: 5000
