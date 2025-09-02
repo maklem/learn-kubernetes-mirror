@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["hello_kubernetes"]
+
+[project]
+name = "learn-kubernetes"
+version = "0.0.1"
+description = "Hello World App for Learning Kubernetes"
+authors = [{name = "Marco Klement", email = "marco-klement-pyproject@leuchtstark.dev"}]
+
+[tool.mypy]
+
+[[tool.mypy.overrides]]
+module = [ "py" ]
+ignore_missing_imports = true
+
+[tool.flake8]
+max-line-length = 120
+exclude = [
+    ".git",
+    "__pycache__",
+    "venv",
+    ".tox",
+    ]
+
+[tool.tox]
+requires = ["tox>=4.19"]
+env_list = ["3.13", "type", "format" ]
+
+[tool.tox.env_run_base]
+description = "Run test under {base_python}"
+deps = ["-r requirements.txt", "-r requirements.dev.txt" ]
+commands = [["pytest"]]
+
+[tool.tox.env.type]
+description = "run type check on code base"
+commands = [["mypy", "hello_kubernetes"], ["mypy", "tests"]]
+allowlist_externals = [ "mypy" ]
+
+[tool.tox.env.format]
+description = "run format check on code base"
+commands = [["flake8"]]

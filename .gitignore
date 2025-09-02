@@ -1,1 +1,6 @@
+learn_kubernetes.egg-info
+.mypy_cache
+.pytest_cache
+__pycache__
+.tox
 venv/
