@@ -18,7 +18,7 @@ def hello():
     with open(COUNTER_FILENAME, 'w') as f:
         f.write(f"{visitor_count}")
 
-    return f"Hello, Kubernetes on Raspberry Pi 5 from Python! You are visitor {visitor_count}"
+    return f"Hello, Kubernetes on Raspberry Pi 5 from Python!<br /> You are visitor {visitor_count}"
 
 if __name__ == "__main__":
     if not os.path.exists(COUNTER_FILENAME):
