@@ -19,5 +19,13 @@ spec:
           ports:
             - containerPort: 5000
           imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /data
+              name: learn-storage
       imagePullSecrets:
         - name: regcred
+      volumes:
+        - name: learn-storage
+          persistentVolumeClaim:
+            claimName: learn-volume-claim
+---
